@@ -26,9 +26,12 @@ function App() {
               </div> */
     <div className="game">
     <div className="game-board">
-      <Board headerText="My Header" name="Metro App github pankaj05011994"/>
-      <hr/>
-      <Board>this is the button</Board>
+    {/* <MyLifeCycle /> */}
+      {/* <Board headerText="My Header" name="Metro App github pankaj05011994"/> */}
+
+      {/* <hr/> */}
+      {/* <CountNumber></CountNumber> */}
+       {/* <Board>this is the button</Board>  */}
     </div>
     <div className="game-info">
       <div>{/* status */}</div>
@@ -55,17 +58,48 @@ function App() {
         }
         return null;
       }
+      class CountNumber extends React.Component{
+        constructor(props){
+          super(props);
+          this.state = {
+              Counting : 1
+          }
+        };
+        btnClickIncrease(){
+          this.setState = ({
+            Counting: this.state.Counting + 1
+          });
+        }
+          render(){
+            return(
+              <div>
+                <p>counting: {this.state.Counting}</p>
+          
+                <button onClick = {this.btnClickIncrease.bind(this)}>increase by one on click 1</button>
+              </div>
+            );
+          
+
+        }
+      }
 
       class Board extends React.Component {
         btnClick(){
           alert("botton is clicked");
         }
+       
         constructor(props) {
           super(props);
           this.state = {
             squares: Array(9).fill(null),
             xIsNext: true,
+            count: 0
           };
+        }
+        btnCountClick(){
+          this.setState = ({
+            count : this.state.count + 1
+          });
         }
         handleClick(i) {
           const squares = this.state.squares.slice();
@@ -81,6 +115,7 @@ function App() {
           onClick={() => this.handleClick(i)} />;
         }
       
+      
         render() {
           const winner = calculateWinner(this.state.squares);
           let status;
@@ -91,6 +126,9 @@ function App() {
           }
           return (
             <div>
+              <h6>value: {this.state.count}</h6>
+              <br/>
+              <button onClick={this.btnCountClick.bind(this)}>increment by 1</button>
               <span>{this.props.children}</span>
               <p>click in the button</p>
               <button onClick = {this.btnClick}>click me</button>
