@@ -1,8 +1,10 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
-// import './App.css';
-// import Content from './Content';
+import PropTypes from 'prop-types';
+import './App.css';
+import Content from './Content';
+import {BrowserRouter as Router , Switch, Route, Link} from 'react-router-dom';
 import Lists from './Lists';
+import App from './App';
 
 class MyLifeCycle extends React.Component{
     constructor(props){
@@ -21,12 +23,38 @@ class MyLifeCycle extends React.Component{
     }
     render () {
         return(
-            <div>
-                <p>number: {this.state.data}</p>
-                <button onClick = {this.setNewNumber}>Increment</button>
-                <Lists></Lists>
-                {/* <Content myNumber = {this.state.data}></Content> */}
-            </div>
+            <Router>
+                <div>
+               
+                    <h3>
+                        welcome to react
+                    </h3>
+                    <ul>
+                        <li>
+                            <Link to={'/lists'}>Lists</Link>
+                        </li>
+                        <li>
+                            <Link to={'/content'}>Content</Link>
+                        </li>
+                        <li>
+                            <Link to={'/'}>App</Link>
+                        </li>
+                    </ul>
+                    <hr/>
+                    <Switch>
+                        <Route exact path = '/lists' component ={Lists} />
+                        <Route exact path = '/content' component ={Content } />
+                        <Route exact path = '/' component ={App } />
+                    </Switch>
+                </div>
+                
+            </Router>
+        //     <div>
+        //     <p>number: {this.state.data}</p>
+        //     <button onClick = {this.setNewNumber}>Increment</button>
+        //     {/* <Lists></Lists> */}
+        //     {/* <Content myNumber = {this.state.data}></Content> */}
+        // </div>
         )
     };
 

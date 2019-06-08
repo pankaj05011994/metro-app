@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-
-class Content extends React.Component{
+var ReactCSSTransitionGroup = require('react-addons-transition-group');
+class Content extends Component{
     constructor(props){
         super(props);
         this.state = {
@@ -45,7 +45,13 @@ class Content extends React.Component{
     }
 render (){
     return(
-        <div><br></br>
+        <div>
+             <ReactCSSTransitionGroup transitionName = 'example'
+    transitionAppear = {true} transitionAppearTimeout = {9000}
+    transitionEnter = {true} transitionLeave = {false} >
+      <h5>My Transition</h5>
+    </ReactCSSTransitionGroup>
+    <br></br>
                 <span>Content</span>
                 <p>myNumber: {this.props.myNumber}</p>
                 <hr></hr>

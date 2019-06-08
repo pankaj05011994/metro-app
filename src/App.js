@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-// import logo from './logo.svg';
+import logo from './logo.svg';
 import './App.css';
+var ReactCSSTransitionGroup = require('react-addons-transition-group');
 
 function App() {
   return (
-   
     
      /* <div className="App" >
        <header className="App-header" >
@@ -27,11 +27,16 @@ function App() {
     <div className="game">
     <div className="game-board">
     {/* <MyLifeCycle /> */}
-      {/* <Board headerText="My Header" name="Metro App github pankaj05011994"/> */}
+    <ReactCSSTransitionGroup transitionName = 'example'
+    transitionAppear = {true} transitionAppearTimeout = {9000}
+    transitionEnter = {true} transitionLeave = {false} >
+      <h5>My Transition</h5>
+    </ReactCSSTransitionGroup>
+    
+      <Board headerText="My Header" name="Metro App github pankaj05011994"/>
 
-      {/* <hr/> */}
-      {/* <CountNumber></CountNumber> */}
-       {/* <Board>this is the button</Board>  */}
+      <hr/>
+      <CountNumber></CountNumber>
     </div>
     <div className="game-info">
       <div>{/* status */}</div>
@@ -58,7 +63,7 @@ function App() {
         }
         return null;
       }
-      class CountNumber extends React.Component{
+      class CountNumber extends Component{
         constructor(props){
           super(props);
           this.state = {
@@ -72,7 +77,9 @@ function App() {
         }
           render(){
             return(
+             
               <div>
+                 
                 <p>counting: {this.state.Counting}</p>
           
                 <button onClick = {this.btnClickIncrease.bind(this)}>increase by one on click 1</button>

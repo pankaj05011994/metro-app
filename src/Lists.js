@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Emp from './Emp';
-class Lists extends React.Component{
+class Lists extends Component{
 state = {
     emps : [
         {id: 1, name: 'pankaj', salary: 50000},
