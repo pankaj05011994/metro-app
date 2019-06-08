@@ -1,7 +1,8 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 // import './App.css';
-import Content from './Content';
+// import Content from './Content';
+import Lists from './Lists';
 
 class MyLifeCycle extends React.Component{
     constructor(props){
@@ -23,7 +24,8 @@ class MyLifeCycle extends React.Component{
             <div>
                 <p>number: {this.state.data}</p>
                 <button onClick = {this.setNewNumber}>Increment</button>
-                <Content myNumber = {this.state.data}></Content>
+                <Lists></Lists>
+                {/* <Content myNumber = {this.state.data}></Content> */}
             </div>
         )
     };
